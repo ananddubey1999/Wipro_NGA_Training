@@ -1,0 +1,182 @@
+#include <stdio.h>
+
+void printIncrementingSquaredNumberStarPattern(int N) {
+    int num = 1;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            printf("%d", num++);
+            if (j != N - 1)
+                printf("*");
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int N;
+    printf("Enter the value of N: ");
+    scanf("%d", &N);
+
+    if (N < 2 || N > 10) {
+        printf("Invalid input! N should be between 2 and 10.\n");
+        return 1;
+    }
+
+    printIncrementingSquaredNumberStarPattern(N);
+
+    return 0;
+}
+
+// assignment Question: 1
+
+
+#include <stdio.h>
+
+void printNumberStarRightTrianglePattern(int N) {
+    int num = 1;
+    for (int i = 1; i <= N; i++) {
+        for (int j = 1; j <= i; j++) {
+            printf("%d", num++);
+            if (j != i)
+                printf("*");
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int N;
+    printf("Enter the value of N: ");
+    scanf("%d", &N);
+
+    if (N < 2 || N > 10) {
+        printf("Invalid input! N should be between 2 and 10.\n");
+        return 1;
+    }
+
+    printNumberStarRightTrianglePattern(N);
+
+    return 0;
+}
+
+//assignment Question: 2
+
+
+#include <stdio.h>
+
+void printAlphabetTriangle(int N) {
+    int spaces, i, j;
+    char currentChar;
+
+    for (i = 1; i <= N; i++) {
+        // Print spaces
+        for (spaces = i; spaces < N; spaces++) {
+            printf("  "); // Two spaces for each character
+        }
+
+        // Print increasing characters
+        currentChar = 'A';
+        for (j = 1; j <= i; j++) {
+            printf("%c", currentChar++);
+            if (j != i)
+                printf(" ");
+        }
+
+        // Print decreasing characters
+        currentChar -= 2;
+        for (j = 1; j < i; j++) {
+            printf(" %c", currentChar--);
+        }
+
+        printf("\n");
+    }
+}
+
+int main() {
+    int N;
+    printf("Enter the value of N: ");
+    scanf("%d", &N);
+
+    if (N < 1) {
+        printf("Invalid input! N should be greater than 0.\n");
+        return 1;
+    }
+
+    printAlphabetTriangle(N);
+
+    return 0;
+}
+
+//assignment Question: 3
+
+#include <stdio.h>
+
+int main() {
+    int N, digit, sum = 0, product = 1;
+
+    // Read the number
+    printf("Enter a positive integer: ");
+    scanf("%d", &N);
+
+    // Calculate sum and product of digits
+    int originalNumber = N; // Store the original number to print later
+    while (N > 0) {
+        digit = N % 10;
+        sum += digit;
+        if (digit != 0) // Exclude multiplication by 0
+            product *= digit;
+        N /= 10;
+    }
+
+    // Print the sum and product
+    printf("Sum = %d\n", sum);
+    printf("Product = %d\n", product);
+
+    return 0;
+}
+
+assignment Question: 4
+
+
+
+
+#include <stdio.h>
+
+void printPartitions(int a, int b, int c, int d) {
+    printf("%d + %d + %d + %d\n", a, b, c, d);
+}
+
+int countWays(int n) {
+    int ways = 0;
+
+    // Iterate from 1 to n/4 since each part must be at least 1
+    for (int i = 1; i <= n / 4; i++) {
+        for (int j = i; j <= n / 3; j++) {
+            for (int k = j; k <= n / 2; k++) {
+                int l = n - (i + j + k);
+                if (l >= k) {
+                    ways++;
+                    printPartitions(i, j, k, l);
+                }
+            }
+        }
+    }
+
+    return ways;
+}
+
+int main() {
+    int T;
+    printf("Enter the number of test cases: ");
+    scanf("%d", &T);
+
+    while (T--) {
+        int n;
+        printf("Enter a positive integer: ");
+        scanf("%d", &n);
+
+        printf("Number of ways to divide %d into 4 parts: %d\n", n, countWays(n));
+    }
+
+    return 0;
+}

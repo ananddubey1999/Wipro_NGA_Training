@@ -1,0 +1,37 @@
+
+
+declaration
+dt arr_name[CAP];
+ex:
+int arr[5];
+
+access the content/elements of array
+-> using index operator/value
+
+arr_name[indexValue]
+
+indexValue will start from zeroth index to (size/cap - 1)
+
+2000    2002    2004    2006    2008    2010
+arr[0]  arr[1]  arr[2]  arr[3]  arr[4]
+
+
+base address =>starting address of an arry
+
+
+types of declaration of arrays:
+
+
+dt arrName[SIZE] = {elements of the array with comma sep}; => dec with initialization
+
+ex:
+int arr[5] = {10,20,30,40,50};
+
+int arr1[5]={0,0,0,0,0};
+
+int arr2[5] = {0,}; => setting the elements to zero
+
+int arr3[] = {1,2,3,4,5,6};
+
+int Size = sizeof(arr3)/sizeof(arr3[0]);
+

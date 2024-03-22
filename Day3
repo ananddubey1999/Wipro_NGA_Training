@@ -1,0 +1,159 @@
+
+Day03 All code
+#include <stdio.h>
+
+int main() {
+    int num1, num2, num3;
+    
+    // Input three numbers
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &num1, &num2, &num3);
+    
+    // Nested if-else to find the greatest number
+    if (num1 >= num2) {
+        if (num1 >= num3) {
+            printf("%d is the greatest number.\n", num1);
+        } else {
+            printf("%d is the greatest number.\n", num3);
+        }
+    } else {
+        if (num2 >= num3) {
+            printf("%d is the greatest number.\n", num2);
+        } else {
+            printf("%d is the greatest number.\n", num3);
+        }
+    }
+    
+    return 0;
+}
+  
+
+
+#include <stdio.h>
+
+int main() {
+    int i = 1;
+    
+loop_start:
+    printf("2 x %d = %d\n", i, 2 * i);
+    i++;
+    if (i <= 10)
+        goto loop_start;
+    else
+        goto loop_end;
+    
+loop_end:
+    return 0;
+}
+
+// while loop on real life example " Timmer "
+#include <stdio.h>
+#include <unistd.h> // for sleep()
+
+int main() {
+    int hours, minutes, seconds;
+
+    printf("Enter the duration of the timer:\n");
+    printf("Hours: ");
+    scanf("%d", &hours);
+    printf("Minutes: ");
+    scanf("%d", &minutes);
+    printf("Seconds: ");
+    scanf("%d", &seconds);
+
+    int total_seconds = hours * 3600 + minutes * 60 + seconds;
+
+    printf("Timer started!\n");
+
+    while (total_seconds > 0) {
+        printf("Time remaining: %02d:%02d:%02d\n", total_seconds / 3600, (total_seconds % 3600) / 60, total_seconds % 60);
+        sleep(1);
+        total_seconds--;
+    }
+
+    printf("Time's up!\n");
+
+    return 0;
+}
+
+
+
+#include <stdio.h>
+
+int main() {
+    int it = 11; // Initialize it to a value greater than 10
+
+    do {
+        it++; // Increment it before entering the loop
+    } while (it <= 10); // Check the condition after the increment
+
+    printf("\nit = %d", it); // Print the value of it after exiting the loop
+
+    printf("\n\nDone!\n\n");
+
+    return 0;
+}
+
+#include<stdio.h>
+
+int main() {
+    int n;
+    int i = 1;
+
+    printf("Enter the number: ");
+    scanf("%d", &n);
+
+    while (i <= 10) {
+        printf("\n%d", i);
+        i++;
+    }
+
+    printf("\nDone\n");
+
+    return 0;
+}
+
+
+
+/// sharddha code here
+
+#include <stdio.h>
+
+void doublenumber(int *num1, int *num2) {
+    *num1 *= 2; // Double the value of num1
+    *num2 *= 2; // Double the value of num2
+    printf("Modified values inside the function: %d %d\n", *num1, *num2);
+}
+
+int main() {
+    int num1, num2;
+
+    printf("Enter two integers: ");
+    scanf("%d %d", &num1, &num2);
+
+    doublenumber(&num1, &num2);
+
+    printf("Original values in main function: %d %d\n", num1, num2);
+
+    return 0;
+}
+
+#include <stdio.h>
+
+void squareNumber(int *num) {
+    *num *= *num; // Square the value of num
+    printf("Modified value inside the function: %d\n", *num);
+}
+
+int main() {
+    int num;
+
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    squareNumber(&num);
+
+    printf("Modified value in main function: %d\n", num);
+
+    return 0;
+}
