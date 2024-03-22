@@ -1,144 +1,39 @@
 #include <stdio.h>
 
+void dispList(int [], int);
+void sortDescending(int [], int);
+
 int main() {
-    char name[50];
-    int roll_number, age;
-    float marks1, marks2, marks3;
+    int arr[] = {10, 1, 3, 5, 2, 8, 9, 22};
+    int Size = sizeof(arr) / sizeof(arr[0]);
     
-    // Input details of the student
-    printf("Enter name of the student: ");
-    scanf("%[^\n]", name);
+    printf("Original array:\n");
+    dispList(arr, Size);
     
-    printf("Enter roll number of the student: ");
-    scanf("%d", &roll_number);
+    sortDescending(arr, Size);
     
-    printf("Enter age of the student: ");
-    scanf("%d", &age);
+    printf("\nSorted array in descending order:\n");
+    dispList(arr, Size);
     
-    printf("Enter marks of the student in three subjects (separated by space): ");
-    scanf("%f %f %f", &marks1, &marks2, &marks3);
-    
-    // Print details of the student
-    printf("\nDetails of the student:\n");
-    printf("Name: %s\n", name);
-    printf("Roll Number: %d\n", roll_number);
-    printf("Age: %d\n", age);
-    printf("Marks in Subject 1: %.2f\n", marks1);
-    printf("Marks in Subject 2: %.2f\n", marks2);
-    printf("Marks in Subject 3: %.2f\n", marks3);
+    printf("\n%d\n\n", arr[3]);
     
     return 0;
 }
 
-file3
-#include <stdio.h>
-#include <string.h>
+void dispList(int a[], int n) {
+    for (int i = 0; i < n; i++)
+        printf("%d->", a[i]);
+    printf("\n");
+}
 
-int main() {
-    char blood[] = "a+";
-    char matched[5] = "o+";
-    int match = 0;
-
-    printf("\nBlood group after testing is it Matched? (0/1): ");
-    scanf("%d", &match);
-
-    if (match == 1) {
-        strcpy(matched, blood);
-        if (strcmp(blood, matched) == 0) {
-            printf("\nPatient got blood from correct match.\n");
-        } else {
-            printf("\nBlood type mismatch occurred.\n");
+void sortDescending(int a[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (a[i] < a[j]) {
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
         }
-    } else {
-        printf("\nPatient got blood from global donor.\n");
     }
-    
-    printf("Patient is saved.\n");
-
-    return 0;
-}
-
-
-#include <stdio.h>
-#include <string.h>
-
-int main() {
-    char password[] = "password123";
-    char input[20];
-    int authenticated = 0;
-
-    printf("\nEnter the password: ");
-    scanf("%s", input);
-
-    if (strcmp(password, input) == 0) {
-        authenticated = 1;
-        printf("\nYou have been successfully authenticated.\n");
-    } else {
-        printf("\nInvalid password. Authentication failed.\n");
-    }
-
-    if (authenticated) {
-        printf("Access granted. Welcome to the system.\n");
-    } else {
-        printf("Access denied. Please try again later.\n");
-    }
-
-    return 0;
-}
-
-
-
-
-#include <stdio.h>
-
-int main() {
-    char clr;
-
-    printf("\nEnter the color of the traffic light (R/O/G): ");
-    clr = getchar();
-
-    if (clr == 'R' || clr == 'r') {
-        printf("\nStop the vehicle until the green light glows\n");
-    } else if (clr == 'O' || clr == 'o') {
-        printf("\nProceed with caution\n");
-    } else if (clr == 'G' || clr == 'g') {
-        printf("\nDrive...\n");
-    } else {
-        printf("\nTraffic lights are off. Hence move slowly considering the flow.\nSpeed Kills\n\n");
-    }
-
-    return 0;
-}
-
-
-#include <stdio.h>
-
-int main() {
-    char clr;
-
-    printf("\nEnter the color of the traffic light (R/O/G): ");
-    clr = getchar(); // Changed to getchar() to read a character from stdin
-
-    switch(clr) {
-        case 'R':
-        case 'r':
-            printf("\nStop the vehicle until green light glows");
-            break;
-
-        case 'O':
-        case 'o':
-            printf("\nStart the vehicle and proceed");
-            break;
-
-        case 'G':
-        case 'g':
-            printf("\nDrive.......");
-            break;
-
-        default:
-            printf("\nTraffic lights are off. Move slowly considering the flow.");
-            break;
-    }
-
-    return 0;
 }
